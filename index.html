@@ -14,112 +14,49 @@
   }
   * { box-sizing:border-box; margin:0; padding:0; }
   body { font-family:'Noto Sans KR','Malgun Gothic',sans-serif; background:#f0f4f8; color:var(--text); font-size:14px; }
-
-  /* ── 설정 화면 ── */
-  #setupScreen {
-    min-height:100vh; display:flex; align-items:center; justify-content:center;
-    background:linear-gradient(135deg,#0f2044 0%,#1a3260 50%,#1e5fa8 100%);
-    padding:20px;
-  }
-  .setup-card {
-    background:white; border-radius:16px; padding:36px 40px;
-    max-width:680px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  }
+  #setupScreen { min-height:100vh; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#0f2044 0%,#1a3260 50%,#1e5fa8 100%); padding:20px; }
+  .setup-card { background:white; border-radius:16px; padding:36px 40px; max-width:680px; width:100%; box-shadow:0 20px 60px rgba(0,0,0,0.4); }
   .setup-card h1 { font-size:22px; font-weight:900; color:var(--navy); margin-bottom:6px; }
   .setup-card .sub { font-size:13px; color:var(--text2); margin-bottom:28px; }
-  .step-box {
-    border:2px solid var(--border); border-radius:10px;
-    padding:18px 20px; margin-bottom:16px;
-  }
+  .step-box { border:2px solid var(--border); border-radius:10px; padding:18px 20px; margin-bottom:16px; }
   .step-box.highlight { border-color:var(--accent); background:#f0f9ff; }
-  .step-num {
-    display:inline-flex; align-items:center; justify-content:center;
-    width:26px; height:26px; border-radius:50%;
-    background:var(--navy); color:white; font-size:12px; font-weight:900;
-    margin-right:8px; flex-shrink:0;
-  }
+  .step-num { display:inline-flex; align-items:center; justify-content:center; width:26px; height:26px; border-radius:50%; background:var(--navy); color:white; font-size:12px; font-weight:900; margin-right:8px; flex-shrink:0; }
   .step-title { font-size:14px; font-weight:700; color:var(--navy); display:flex; align-items:center; margin-bottom:10px; }
   .step-desc { font-size:12px; color:var(--text2); line-height:1.7; margin-bottom:10px; }
-  .code-box {
-    background:#1e1e1e; color:#d4d4d4; border-radius:8px;
-    padding:14px 16px; font-size:11px; font-family:monospace;
-    white-space:pre; overflow-x:auto; line-height:1.6; margin:10px 0;
-    position:relative;
-  }
-  .copy-btn {
-    position:absolute; top:8px; right:8px;
-    background:#3c3c3c; color:#ccc; border:none; border-radius:4px;
-    padding:3px 8px; font-size:10px; cursor:pointer;
-  }
-  .copy-btn:hover { background:#555; }
+  .code-box { background:#1e1e1e; color:#d4d4d4; border-radius:8px; padding:14px 16px; font-size:11px; font-family:monospace; white-space:pre; overflow-x:auto; line-height:1.6; margin:10px 0; position:relative; }
+  .copy-btn { position:absolute; top:8px; right:8px; background:#3c3c3c; color:#ccc; border:none; border-radius:4px; padding:3px 8px; font-size:10px; cursor:pointer; }
   .url-input-wrap { display:flex; gap:8px; margin-top:10px; }
-  .url-input {
-    flex:1; border:2px solid var(--border); border-radius:7px;
-    padding:9px 12px; font-size:12px; font-family:inherit;
-  }
-  .url-input:focus { outline:none; border-color:var(--accent); }
-  .btn-start {
-    background:var(--blue); color:white; border:none; border-radius:7px;
-    padding:9px 20px; font-size:13px; font-weight:700; cursor:pointer;
-    font-family:inherit; white-space:nowrap;
-  }
-  .btn-start:hover { background:var(--navy); }
-  .btn-start:disabled { background:#ccc; cursor:not-allowed; }
+  .url-input { flex:1; border:2px solid var(--border); border-radius:7px; padding:9px 12px; font-size:12px; font-family:inherit; }
+  .btn-start { background:var(--blue); color:white; border:none; border-radius:7px; padding:9px 20px; font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; }
   .warn { font-size:11px; color:#d93025; margin-top:6px; display:none; }
   .tip { background:#e8f5e9; border-left:3px solid var(--green); padding:8px 12px; border-radius:0 6px 6px 0; font-size:11px; color:#1b5e20; margin-top:8px; }
-
-  /* ── 앱 화면 ── */
   #appScreen { display:none; }
-  .header {
-    background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--blue) 100%);
-    color:white; padding:16px 20px; position:sticky; top:0; z-index:100;
-    box-shadow:0 2px 12px rgba(0,0,0,0.3);
-  }
+  .header { background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 60%,var(--blue) 100%); color:white; padding:16px 20px; position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,0.3); }
   .header-top { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:8px; }
   .header-title { font-size:18px; font-weight:900; }
   .header-sub { font-size:11px; opacity:0.7; margin-top:2px; }
   .header-meta { display:flex; gap:10px; flex-wrap:wrap; margin-top:10px; }
   .meta-field { display:flex; align-items:center; gap:5px; }
   .meta-field label { font-size:11px; opacity:0.75; white-space:nowrap; }
-  .meta-field input {
-    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3);
-    border-radius:5px; color:white; padding:4px 8px; font-size:12px; font-family:inherit; width:130px;
-  }
+  .meta-field input { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); border-radius:5px; color:white; padding:4px 8px; font-size:12px; font-family:inherit; width:130px; }
   .meta-field input::placeholder { opacity:0.5; color:white; }
-  .meta-field input:focus { outline:none; background:rgba(255,255,255,0.25); }
   .progress-wrap { margin-top:10px; }
   .progress-label { display:flex; justify-content:space-between; font-size:11px; opacity:0.85; margin-bottom:4px; }
   .progress-bar-bg { background:rgba(255,255,255,0.2); border-radius:8px; height:7px; overflow:hidden; }
   .progress-bar { height:100%; border-radius:8px; background:var(--accent); transition:width 0.3s; }
   .progress-stats { display:flex; gap:14px; font-size:11px; margin-top:5px; flex-wrap:wrap; }
-  .hdr-btns { display:flex; gap:6px; }
-  .btn-hdr {
-    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.35);
-    color:white; border-radius:6px; padding:5px 12px; cursor:pointer;
-    font-size:11px; font-weight:700; font-family:inherit;
-  }
+  .hdr-btns { display:flex; gap:6px; align-items:center; }
+  .btn-hdr { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.35); color:white; border-radius:6px; padding:5px 12px; cursor:pointer; font-size:11px; font-weight:700; font-family:inherit; }
   .btn-hdr:hover { background:rgba(255,255,255,0.28); }
   .btn-hdr.active { background:var(--yellow); border-color:var(--yellow); }
-
-  /* 저장 상태 표시 */
-  #saveStatus {
-    position:fixed; bottom:20px; right:20px; z-index:999;
-    border-radius:8px; padding:10px 16px; font-size:12px; font-weight:700;
-    box-shadow:0 4px 16px rgba(0,0,0,0.2); transition:all 0.3s;
-    display:none;
-  }
+  #saveStatus { position:fixed; bottom:20px; right:20px; z-index:999; border-radius:8px; padding:10px 16px; font-size:12px; font-weight:700; box-shadow:0 4px 16px rgba(0,0,0,0.2); transition:all 0.3s; display:none; }
   #saveStatus.saving { background:#fef3c7; color:#92400e; display:block; }
   #saveStatus.saved  { background:#d1fae5; color:#065f46; display:block; }
   #saveStatus.error  { background:#fee2e2; color:#991b1b; display:block; }
-
-  /* 레이아웃 */
   .layout { display:flex; gap:14px; padding:14px; max-width:1200px; margin:0 auto; }
   .sidebar { width:200px; flex-shrink:0; }
   .sidebar-label { font-size:11px; font-weight:700; color:var(--text2); text-transform:uppercase; letter-spacing:1px; margin-bottom:7px; }
-  .sec-tab {
-    background:white; border:2px solid var(--border); border-radius:8px;
-    padding:9px 11px; margin-bottom:5px; cursor:pointer; transition:all 0.15s;
-  }
+  .sec-tab { background:white; border:2px solid var(--border); border-radius:8px; padding:9px 11px; margin-bottom:5px; cursor:pointer; transition:all 0.15s; }
   .sec-tab:hover { border-color:var(--blue); }
   .sec-tab.active { color:white; border-color:transparent; }
   .sec-tab-name { font-size:11px; font-weight:700; line-height:1.3; margin-bottom:4px; }
@@ -129,33 +66,16 @@
   .pill-fail { background:var(--red-bg); color:var(--red); }
   .pill-done { background:rgba(0,0,0,0.08); color:var(--text2); }
   .sec-tab.active .pill-done { background:rgba(255,255,255,0.2); color:white; }
-
   .main { flex:1; min-width:0; }
-  .section-header {
-    color:white; border-radius:10px 10px 0 0; padding:11px 14px;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;
-  }
+  .section-header { color:white; border-radius:10px 10px 0 0; padding:11px 14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px; }
   .section-header-title { font-size:14px; font-weight:800; }
   .filter-btns { display:flex; gap:4px; }
-  .filter-btn {
-    background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3);
-    color:white; border-radius:5px; padding:3px 8px; cursor:pointer;
-    font-size:11px; font-family:inherit;
-  }
-  .filter-btn:hover { background:rgba(255,255,255,0.28); }
+  .filter-btn { background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.3); color:white; border-radius:5px; padding:3px 8px; cursor:pointer; font-size:11px; font-family:inherit; }
   .filter-btn.active { background:rgba(255,255,255,0.35); font-weight:700; }
-
   .table-wrap { background:white; border-radius:0 0 10px 10px; overflow:hidden; box-shadow:0 2px 10px rgba(0,0,0,0.08); }
-  .table-head {
-    display:grid; grid-template-columns:50px 62px 1fr 165px 68px 68px 76px 36px;
-    background:#f8f9fa; border-bottom:2px solid var(--border);
-    padding:7px 11px; gap:5px; font-size:11px; font-weight:700; color:var(--text2);
-  }
+  .table-head { display:grid; grid-template-columns:50px 62px 1fr 165px 68px 68px 76px 36px; background:#f8f9fa; border-bottom:2px solid var(--border); padding:7px 11px; gap:5px; font-size:11px; font-weight:700; color:var(--text2); }
   .item-row { border-bottom:1px solid #f1f3f4; }
-  .item-grid {
-    display:grid; grid-template-columns:50px 62px 1fr 165px 68px 68px 76px 36px;
-    padding:9px 11px; gap:5px; align-items:center;
-  }
+  .item-grid { display:grid; grid-template-columns:50px 62px 1fr 165px 68px 68px 76px 36px; padding:9px 11px; gap:5px; align-items:center; }
   .item-grid.result-pass { background:#f0fdf4; }
   .item-grid.result-fail { background:#fff5f5; }
   .item-id { font-size:11px; color:var(--text2); font-weight:700; }
@@ -164,33 +84,19 @@
   .item-method { font-size:10px; color:var(--text2); margin-top:2px; }
   .item-note-show { font-size:10px; color:#a16207; margin-top:2px; }
   .item-spec { font-size:11px; color:#444; line-height:1.35; }
-  .result-btn {
-    width:60px; height:27px; border-radius:6px; border:2px solid var(--border);
-    background:white; color:var(--text2); cursor:pointer;
-    font-size:11px; font-weight:500; font-family:inherit;
-    display:block; margin:0 auto; transition:all 0.12s;
-  }
+  .result-btn { width:60px; height:27px; border-radius:6px; border:2px solid var(--border); background:white; color:var(--text2); cursor:pointer; font-size:11px; font-weight:500; font-family:inherit; display:block; margin:0 auto; transition:all 0.12s; }
   .result-btn.pass { border-color:var(--green); background:var(--green-bg); color:var(--green); font-weight:700; }
   .result-btn.fail { border-color:var(--red); background:var(--red-bg); color:var(--red); font-weight:700; }
   .result-btn.na   { border-color:var(--gray); background:#f3f4f6; color:var(--gray); font-weight:700; }
-  .note-btn {
-    background:#fafafa; border:1px solid var(--border); border-radius:5px;
-    padding:4px 5px; cursor:pointer; font-size:13px; display:block; margin:0 auto;
-  }
+  .note-btn { background:#fafafa; border:1px solid var(--border); border-radius:5px; padding:4px 5px; cursor:pointer; font-size:13px; display:block; margin:0 auto; }
   .note-btn.has-note { background:#fef3c7; border-color:#fbbf24; }
   .note-area { padding:8px 11px; background:#fffbeb; border-top:1px solid #fde68a; display:none; }
   .note-area.open { display:block; }
-  .note-area textarea {
-    width:100%; height:55px; border:1px solid #fbbf24; border-radius:5px;
-    padding:6px 8px; font-size:12px; font-family:inherit; resize:vertical;
-  }
-  .note-area textarea:focus { outline:none; }
+  .note-area textarea { width:100%; height:55px; border:1px solid #fbbf24; border-radius:5px; padding:6px 8px; font-size:12px; font-family:inherit; resize:vertical; }
   .note-actions { display:flex; gap:6px; margin-top:5px; }
   .btn-save { background:#f59e0b; color:white; border:none; border-radius:5px; padding:4px 12px; cursor:pointer; font-size:12px; font-weight:700; font-family:inherit; }
   .btn-cancel { background:#e5e7eb; color:var(--text); border:none; border-radius:5px; padding:4px 12px; cursor:pointer; font-size:12px; font-family:inherit; }
   .empty-msg { padding:28px; text-align:center; color:#9ca3af; font-size:13px; }
-
-  /* 요약 */
   #summaryView { display:none; max-width:860px; margin:18px auto; padding:0 14px; }
   .summary-card { background:white; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1); overflow:hidden; }
   .summary-hd { background:linear-gradient(135deg,var(--navy),var(--navy2)); color:white; padding:20px 24px; text-align:center; }
@@ -205,7 +111,6 @@
   .sec-results { padding:14px 22px; }
   .sec-results h3 { font-size:13px; font-weight:700; margin-bottom:9px; }
   .sec-result-row { display:flex; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid #f1f3f4; }
-  .sec-result-row:last-child { border-bottom:none; }
   .sec-info { flex:1; }
   .sec-info .name { font-size:12px; font-weight:600; }
   .sec-info .counts { font-size:11px; color:var(--text2); }
@@ -226,15 +131,8 @@
   .sign-box .sign-label { font-size:10px; color:#9ca3af; }
   .summary-footer { text-align:center; font-size:11px; color:#9ca3af; padding:8px 22px 14px; }
   .btn-print { background:var(--blue); color:white; border:none; border-radius:6px; padding:7px 16px; cursor:pointer; font-size:12px; font-weight:700; font-family:inherit; display:block; margin:0 auto 16px; }
-
-  /* Sheets 연동 상태 배너 */
-  .sheets-banner {
-    background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px;
-    padding:8px 14px; margin-bottom:10px; font-size:12px; color:#1b5e20;
-    display:flex; align-items:center; gap:8px;
-  }
+  .sheets-banner { background:#e8f5e9; border:1px solid #a5d6a7; border-radius:8px; padding:8px 14px; margin-bottom:10px; font-size:12px; color:#1b5e20; display:flex; align-items:center; gap:8px; }
   .sheets-banner.error { background:#fce8e6; border-color:#ef9a9a; color:#b71c1c; }
-
   @media print {
     .header,.sidebar,.filter-btns,.note-btn,.hdr-btns,#saveStatus { display:none!important; }
     body { background:white; }
@@ -244,154 +142,89 @@
 </style>
 </head>
 <body>
-
-<!-- ══════════════════════════════════
-     설정 화면 (처음 한 번만)
-══════════════════════════════════ -->
 <div id="setupScreen">
   <div class="setup-card">
     <h1>🛡️ 제독차-II 수락검사 체크리스트</h1>
     <div class="sub">Google Sheets 연동 설정 — 처음 한 번만 하면 됩니다 (약 10분 소요)</div>
-
-    <!-- STEP 1 -->
     <div class="step-box">
       <div class="step-title"><span class="step-num">1</span>Google Sheets 새 파일 만들기</div>
-      <div class="step-desc">
-        구글 계정으로 로그인 후 아래 주소에서 새 스프레드시트를 만드세요.<br>
-        <b>sheets.new</b> 를 브라우저 주소창에 입력하면 바로 생성됩니다.
-      </div>
+      <div class="step-desc">구글 계정으로 로그인 후 <b>sheets.new</b> 를 브라우저 주소창에 입력하면 바로 생성됩니다.</div>
       <div class="tip">💡 파일 이름을 "제독차_수락검사_DB" 로 바꿔두면 나중에 찾기 편합니다.</div>
     </div>
-
-    <!-- STEP 2 -->
     <div class="step-box">
       <div class="step-title"><span class="step-num">2</span>Apps Script 편집기 열기</div>
-      <div class="step-desc">
-        스프레드시트 상단 메뉴에서<br>
-        <b>확장 프로그램 → Apps Script</b> 클릭
-      </div>
+      <div class="step-desc">스프레드시트 상단 메뉴에서 <b>확장 프로그램 → Apps Script</b> 클릭</div>
     </div>
-
-    <!-- STEP 3 -->
     <div class="step-box highlight">
       <div class="step-title"><span class="step-num">3</span>아래 코드 전체 복사 → 붙여넣기 → 저장(💾)</div>
       <div class="step-desc">편집기에 있는 기존 내용을 모두 지우고 아래 코드를 붙여넣으세요.</div>
-      <div class="code-box" id="appsScriptCode">// ── 제독차 수락검사 Google Apps Script (CORS + JSONP 지원) ──
-const SHEET_NAME = "검사결과";
-
+      <div class="code-box" id="appsScriptCode">const SHEET_NAME = "검사결과";
 function initSheet(ss) {
   let sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-    sheet.appendRow(["저장시각","차량번호","검사일","검사자","부대명",
-                      "항목ID","항목명","결과","비고"]);
-    sheet.getRange(1,1,1,9)
-      .setFontWeight("bold")
-      .setBackground("#1a3260")
-      .setFontColor("white");
+    sheet.appendRow(["저장시각","차량번호","검사일","검사자","부대명","항목ID","항목명","결과","비고"]);
+    sheet.getRange(1,1,1,9).setFontWeight("bold").setBackground("#1a3260").setFontColor("white");
   }
   return sheet;
 }
-
-// ✅ POST: 검사 결과 저장
 function doPost(e) {
-  const output = handlePost(e);
-  return output;
-}
-
-function handlePost(e) {
   try {
-    const ss    = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = initSheet(ss);
-    const data  = JSON.parse(e.postData.contents);
-    const ts    = new Date().toLocaleString("ko-KR");
-
-    // 같은 차량번호 + 항목ID 기존 행 삭제 (중복 방지)
-    const rows = sheet.getDataRange().getValues();
-    for (let i = rows.length - 1; i >= 1; i--) {
-      if (rows[i][1] === data.vehicleNo && rows[i][5] === data.itemId) {
-        sheet.deleteRow(i + 1);
-      }
+    const ss=SpreadsheetApp.getActiveSpreadsheet();
+    const sheet=initSheet(ss);
+    const data=JSON.parse(e.postData.contents);
+    const ts=new Date().toLocaleString("ko-KR");
+    const rows=sheet.getDataRange().getValues();
+    for(let i=rows.length-1;i>=1;i--){
+      if(rows[i][1]===data.vehicleNo&&rows[i][5]===data.itemId) sheet.deleteRow(i+1);
     }
-    sheet.appendRow([ts, data.vehicleNo, data.inspDate, data.inspector,
-                     data.unitName, data.itemId, data.itemName,
-                     data.result, data.note || ""]);
-
-    return ContentService
-      .createTextOutput(JSON.stringify({status:"ok"}))
-      .setMimeType(ContentService.MimeType.JSON);
+    sheet.appendRow([ts,data.vehicleNo,data.inspDate,data.inspector,data.unitName,data.itemId,data.itemName,data.result,data.note||""]);
+    return ContentService.createTextOutput(JSON.stringify({status:"ok"})).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({status:"error", msg:err.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({status:"error",msg:err.toString()})).setMimeType(ContentService.MimeType.JSON);
   }
 }
-
-// ✅ GET: 데이터 조회 (JSONP 지원 → file:// 환경에서도 동작)
 function doGet(e) {
   try {
-    const ss    = SpreadsheetApp.getActiveSpreadsheet();
-    const sheet = ss.getSheetByName(SHEET_NAME);
+    const ss=SpreadsheetApp.getActiveSpreadsheet();
+    const sheet=ss.getSheetByName(SHEET_NAME);
     let jsonData;
-
-    if (!sheet) {
-      jsonData = JSON.stringify({status:"ok", rows:[]});
-    } else {
-      const rows    = sheet.getDataRange().getValues();
-      const headers = rows[0];
-      const data    = rows.slice(1).map(r => {
-        let obj = {};
-        headers.forEach((h, i) => obj[h] = r[i]);
-        return obj;
-      });
-      jsonData = JSON.stringify({status:"ok", rows:data});
+    if(!sheet){ jsonData=JSON.stringify({status:"ok",rows:[]}); }
+    else {
+      const rows=sheet.getDataRange().getValues();
+      const headers=rows[0];
+      const data=rows.slice(1).map(r=>{let obj={};headers.forEach((h,i)=>obj[h]=r[i]);return obj;});
+      jsonData=JSON.stringify({status:"ok",rows:data});
     }
-
-    // JSONP 지원: ?callback=함수명 파라미터가 있으면 JSONP로 반환
-    const cb = e.parameter && e.parameter.callback;
-    if (cb) {
-      return ContentService
-        .createTextOutput(cb + "(" + jsonData + ");")
-        .setMimeType(ContentService.MimeType.JAVASCRIPT);
-    }
-
-    return ContentService
-      .createTextOutput(jsonData)
-      .setMimeType(ContentService.MimeType.JSON);
-
+    const cb=e.parameter&&e.parameter.callback;
+    if(cb) return ContentService.createTextOutput(cb+"("+jsonData+");").setMimeType(ContentService.MimeType.JAVASCRIPT);
+    return ContentService.createTextOutput(jsonData).setMimeType(ContentService.MimeType.JSON);
   } catch(err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({status:"error", msg:err.toString()}))
-      .setMimeType(ContentService.MimeType.JSON);
+    return ContentService.createTextOutput(JSON.stringify({status:"error",msg:err.toString()})).setMimeType(ContentService.MimeType.JSON);
   }
 }
       <button class="copy-btn" onclick="copyCode()">복사</button></div>
     </div>
-
-    <!-- STEP 4 -->
     <div class="step-box">
       <div class="step-title"><span class="step-num">4</span>웹 앱으로 배포하기</div>
       <div class="step-desc">
         Apps Script 편집기 오른쪽 상단 <b>배포 → 새 배포</b> 클릭<br>
         ① 유형 선택 → <b>웹 앱</b><br>
         ② 다음 사용자로 실행 → <b>나(내 Google 계정)</b><br>
-        ③ 액세스 권한 → <b>모든 사용자</b> (또는 조직 내부용)<br>
+        ③ 액세스 권한 → <b>모든 사용자</b><br>
         ④ <b>배포</b> 버튼 클릭 → 권한 승인<br>
         ⑤ <b>웹 앱 URL</b> 복사
       </div>
       <div class="tip">💡 URL은 https://script.google.com/macros/s/...../exec 형태입니다.</div>
     </div>
-
-    <!-- STEP 5 -->
     <div class="step-box highlight">
       <div class="step-title"><span class="step-num">5</span>복사한 URL을 아래에 붙여넣고 시작!</div>
       <div class="url-input-wrap">
         <input class="url-input" id="scriptUrl" type="text" placeholder="https://script.google.com/macros/s/........../exec">
-        <button class="btn-start" id="btnStart" onclick="startApp()">✅ 시작하기</button>
+        <button class="btn-start" onclick="startApp()">✅ 시작하기</button>
       </div>
       <div class="warn" id="urlWarn">⚠️ 올바른 Google Apps Script URL을 입력해주세요.</div>
     </div>
-
     <div style="text-align:center;margin-top:8px">
       <button onclick="startApp(true)" style="background:none;border:none;color:#1e5fa8;cursor:pointer;font-size:12px;text-decoration:underline;font-family:inherit">
         📋 URL 없이 오프라인 모드로 시작 (저장 안됨)
@@ -400,9 +233,6 @@ function doGet(e) {
   </div>
 </div>
 
-<!-- ══════════════════════════════════
-     앱 화면
-══════════════════════════════════ -->
 <div id="appScreen">
   <div class="header">
     <div class="header-top">
@@ -411,16 +241,18 @@ function doGet(e) {
         <div class="header-title">🛡️ 제독차-II 수락검사 체크리스트</div>
       </div>
       <div class="hdr-btns">
-        <button class="btn-hdr" id="btnSheets" onclick="openSheets()">📊 Sheets 보기</button>
+        <span id="autoRefreshLabel" style="font-size:11px;opacity:0.7;">🔄 자동업데이트: 30초 후</span>
+        <button class="btn-hdr" onclick="openSheets()">📊 Sheets 보기</button>
+        <button class="btn-hdr" onclick="loadFromSheets(false)">🔄 지금 새로고침</button>
         <button class="btn-hdr" id="btnSummary" onclick="toggleSummary()">📋 최종 요약</button>
-        <button class="btn-hdr" onclick="resetSetup()" title="설정 초기화">⚙️ 재설정</button>
+        <button class="btn-hdr" onclick="resetSetup()">⚙️ 재설정</button>
       </div>
     </div>
     <div class="header-meta">
-      <div class="meta-field"><label>차량번호</label><input type="text" id="vehicleNo" placeholder="육군 가-1234" oninput="onMetaChange()"></div>
-      <div class="meta-field"><label>검사일</label><input type="date" id="inspDate" oninput="onMetaChange()"></div>
-      <div class="meta-field"><label>검사자</label><input type="text" id="inspector" placeholder="성명/직책" oninput="onMetaChange()"></div>
-      <div class="meta-field"><label>부대명</label><input type="text" id="unitName" placeholder="소속 부대명" oninput="onMetaChange()"></div>
+      <div class="meta-field"><label>차량번호</label><input type="text" id="vehicleNo" placeholder="육군 가-1234"></div>
+      <div class="meta-field"><label>검사일</label><input type="date" id="inspDate"></div>
+      <div class="meta-field"><label>검사자</label><input type="text" id="inspector" placeholder="성명/직책"></div>
+      <div class="meta-field"><label>부대명</label><input type="text" id="unitName" placeholder="소속 부대명"></div>
     </div>
     <div class="progress-wrap">
       <div class="progress-label">
@@ -436,7 +268,6 @@ function doGet(e) {
       </div>
     </div>
   </div>
-
   <div id="mainLayout" class="layout">
     <div class="sidebar">
       <div class="sidebar-label">검사 구분</div>
@@ -444,17 +275,11 @@ function doGet(e) {
     </div>
     <div class="main" id="mainContent"></div>
   </div>
-
   <div id="summaryView"></div>
 </div>
-
-<!-- 저장 상태 토스트 -->
 <div id="saveStatus"></div>
 
 <script>
-// ════════════════════════════════════
-//  데이터
-// ════════════════════════════════════
 const SECTIONS=[
   {id:'S1',icon:'🔍',color:'#1a5f7a',title:'1. 외관 및 설치 상태',items:[
     {id:'1-01',cat:'카메라',name:'전방카메라(AMC-CVI100) 설치 위치 확인',spec:'보닛 전면 / 타공 설치',method:'육안 확인'},
@@ -476,51 +301,51 @@ const SECTIONS=[
     {id:'1-17',cat:'브라켓',name:'브라켓 설치 시 기존 시스템 영향 없음',spec:'제독차량 기존 시스템에 영향 없을 것',method:'육안 확인'},
   ]},
   {id:'S2',icon:'⚙️',color:'#2d6a4f',title:'2. 기능 동작 검사',items:[
-    {id:'2-01',cat:'부팅',name:'모니터 출력 – 엔진시동 후 15초 이내 영상 출력',spec:'엔진시동 후 15초 이내 기본뷰 출력',method:'스톱워치 / 절4.4'},
-    {id:'2-02',cat:'부팅',name:'부팅 후 화면 안정성 (멈춤·깜빡임 없음)',spec:'화면 멈춤, HDMI 다운, 깜빡임 없음',method:'지속 모니터링 / 절4.4'},
-    {id:'2-03',cat:'터치',name:'화면 터치 시 사이드 메뉴 표출',spec:'터치 → 사이드 메뉴 표출',method:'터치 동작 / 절4.1'},
-    {id:'2-04',cat:'터치',name:'뷰버튼① [SVM+우전방+후방] 전환',spec:'터치 → 해당 뷰 전환',method:'터치 동작 / 절4.1'},
-    {id:'2-05',cat:'터치',name:'뷰버튼② [SVM+3D SVM(좌측)] 전환',spec:'터치 → 해당 뷰 전환',method:'터치 동작 / 절4.1'},
-    {id:'2-06',cat:'터치',name:'뷰버튼③ 화면 전환',spec:'터치 → 해당 뷰 전환',method:'터치 동작 / 절4.1'},
-    {id:'2-07',cat:'터치',name:'뷰버튼④ [1~8채널 라이브뷰] – 30초 블랙 없음',spec:'9분할 모드 1~7채널 동시 표출 30초',method:'영상 확인 / 절4.2'},
-    {id:'2-08',cat:'영상',name:'전체 7채널 영상 동시 출력 확인',spec:'지정 카메라 7채널 모두 출력',method:'육안 확인 / 절4.2'},
-    {id:'2-09',cat:'채널',name:'CH1 – SVM 전방 카메라 동적 영상(5초)',spec:'전방 카메라 앞 동작 → CH1 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-10',cat:'채널',name:'CH2 – SVM 좌측 카메라 동적 영상(5초)',spec:'좌측 카메라 앞 동작 → CH2 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-11',cat:'채널',name:'CH3 – SVM 후방 카메라 동적 영상(5초)',spec:'후방 카메라 앞 동작 → CH3 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-12',cat:'채널',name:'CH4 – SVM 우측 카메라 동적 영상(5초)',spec:'우측 카메라 앞 동작 → CH4 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-13',cat:'채널',name:'CH5 – 상부 카메라 동적 영상(5초)',spec:'상부 카메라 앞 동작 → CH5 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-14',cat:'채널',name:'CH6 – 하부 카메라 동적 영상(5초)',spec:'하부 카메라 앞 동작 → CH6 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-15',cat:'채널',name:'CH7 – 후방 IR 카메라 동적 영상(5초)',spec:'후방 IR 카메라 앞 동작 → CH7 확인',method:'손 흔들기 / 절4.8'},
-    {id:'2-16',cat:'코너뷰',name:'사각지대 코너뷰 – 우전방 영역 확인',spec:'우전방 영역 사람 배치 → 코너뷰 식별',method:'사람 배치 / 절4.3'},
-    {id:'2-17',cat:'코너뷰',name:'3D SVM 터치 360도 회전 사람 확인',spec:'3D SVM 터치 회전 → 사람 식별',method:'터치 회전 / 절4.3'},
-    {id:'2-18',cat:'자동전환',name:'방향지시등 좌측 → SVM+3D(좌) 자동 전환',spec:'좌측 방향지시등 → 지정 화면 전환',method:'차량 조작 / 절4.5'},
-    {id:'2-19',cat:'자동전환',name:'방향지시등 우측 → SVM+3D(우) 자동 전환',spec:'우측 방향지시등 → 지정 화면 전환',method:'차량 조작 / 절4.5'},
-    {id:'2-20',cat:'자동전환',name:'후진기어 → [SVM+후방] 자동 전환',spec:'후진 기어 입력 → [SVM+후방] 전환',method:'차량 조작 / 절4.6'},
-    {id:'2-21',cat:'자동전환',name:'제독 작전 신호 → [SVM+CH5+CH6] 전환',spec:'제독 작전 신호 입력 → 지정 화면 전환',method:'신호 입력 / 절4.7'},
+    {id:'2-01',cat:'부팅',name:'모니터 출력 – 엔진시동 후 15초 이내 영상 출력',spec:'엔진시동 후 15초 이내 기본뷰 출력',method:'스톱워치'},
+    {id:'2-02',cat:'부팅',name:'부팅 후 화면 안정성 (멈춤·깜빡임 없음)',spec:'화면 멈춤, HDMI 다운, 깜빡임 없음',method:'지속 모니터링'},
+    {id:'2-03',cat:'터치',name:'화면 터치 시 사이드 메뉴 표출',spec:'터치 → 사이드 메뉴 표출',method:'터치 동작'},
+    {id:'2-04',cat:'터치',name:'뷰버튼① [SVM+우전방+후방] 전환',spec:'터치 → 해당 뷰 전환',method:'터치 동작'},
+    {id:'2-05',cat:'터치',name:'뷰버튼② [SVM+3D SVM(좌측)] 전환',spec:'터치 → 해당 뷰 전환',method:'터치 동작'},
+    {id:'2-06',cat:'터치',name:'뷰버튼③ 화면 전환',spec:'터치 → 해당 뷰 전환',method:'터치 동작'},
+    {id:'2-07',cat:'터치',name:'뷰버튼④ [1~8채널 라이브뷰] – 30초 블랙 없음',spec:'9분할 모드 1~7채널 동시 표출 30초',method:'영상 확인'},
+    {id:'2-08',cat:'영상',name:'전체 7채널 영상 동시 출력 확인',spec:'지정 카메라 7채널 모두 출력',method:'육안 확인'},
+    {id:'2-09',cat:'채널',name:'CH1 – SVM 전방 카메라 동적 영상(5초)',spec:'전방 카메라 앞 동작 → CH1 확인',method:'손 흔들기'},
+    {id:'2-10',cat:'채널',name:'CH2 – SVM 좌측 카메라 동적 영상(5초)',spec:'좌측 카메라 앞 동작 → CH2 확인',method:'손 흔들기'},
+    {id:'2-11',cat:'채널',name:'CH3 – SVM 후방 카메라 동적 영상(5초)',spec:'후방 카메라 앞 동작 → CH3 확인',method:'손 흔들기'},
+    {id:'2-12',cat:'채널',name:'CH4 – SVM 우측 카메라 동적 영상(5초)',spec:'우측 카메라 앞 동작 → CH4 확인',method:'손 흔들기'},
+    {id:'2-13',cat:'채널',name:'CH5 – 상부 카메라 동적 영상(5초)',spec:'상부 카메라 앞 동작 → CH5 확인',method:'손 흔들기'},
+    {id:'2-14',cat:'채널',name:'CH6 – 하부 카메라 동적 영상(5초)',spec:'하부 카메라 앞 동작 → CH6 확인',method:'손 흔들기'},
+    {id:'2-15',cat:'채널',name:'CH7 – 후방 IR 카메라 동적 영상(5초)',spec:'후방 IR 카메라 앞 동작 → CH7 확인',method:'손 흔들기'},
+    {id:'2-16',cat:'코너뷰',name:'사각지대 코너뷰 – 우전방 영역 확인',spec:'우전방 영역 사람 배치 → 코너뷰 식별',method:'사람 배치'},
+    {id:'2-17',cat:'코너뷰',name:'3D SVM 터치 360도 회전 사람 확인',spec:'3D SVM 터치 회전 → 사람 식별',method:'터치 회전'},
+    {id:'2-18',cat:'자동전환',name:'방향지시등 좌측 → SVM+3D(좌) 자동 전환',spec:'좌측 방향지시등 → 지정 화면 전환',method:'차량 조작'},
+    {id:'2-19',cat:'자동전환',name:'방향지시등 우측 → SVM+3D(우) 자동 전환',spec:'우측 방향지시등 → 지정 화면 전환',method:'차량 조작'},
+    {id:'2-20',cat:'자동전환',name:'후진기어 → [SVM+후방] 자동 전환',spec:'후진 기어 입력 → [SVM+후방] 전환',method:'차량 조작'},
+    {id:'2-21',cat:'자동전환',name:'제독 작전 신호 → [SVM+CH5+CH6] 전환',spec:'제독 작전 신호 입력 → 지정 화면 전환',method:'신호 입력'},
   ]},
   {id:'S3',icon:'🎬',color:'#6b3fa0',title:'3. 녹화·재생 검사',items:[
-    {id:'3-01',cat:'녹화',name:'[녹화 중] → [녹화 안됨] 전환 확인',spec:'녹화 버튼 터치 → 상태 전환',method:'터치 동작 / 절4.9'},
-    {id:'3-02',cat:'녹화',name:'[녹화 안됨] → [녹화 중] 전환 확인',spec:'녹화 안됨 버튼 → 녹화 중 전환',method:'터치 동작 / 절4.9'},
+    {id:'3-01',cat:'녹화',name:'[녹화 중] → [녹화 안됨] 전환 확인',spec:'녹화 버튼 터치 → 상태 전환',method:'터치 동작'},
+    {id:'3-02',cat:'녹화',name:'[녹화 안됨] → [녹화 중] 전환 확인',spec:'녹화 안됨 버튼 → 녹화 중 전환',method:'터치 동작'},
     {id:'3-03',cat:'녹화',name:'모니터 아이콘 터치로 녹화 ON/OFF',spec:'아이콘 터치 → 녹화 ON/OFF 제어',method:'터치 동작'},
-    {id:'3-04',cat:'재생',name:'녹화 영상 재생 기능 확인',spec:'메뉴→제어기→영상목록→채널→재생',method:'메뉴 접근 / 절4.10'},
+    {id:'3-04',cat:'재생',name:'녹화 영상 재생 기능 확인',spec:'메뉴→제어기→영상목록→채널→재생',method:'메뉴 접근'},
     {id:'3-05',cat:'저장',name:'저장 용량 확인 (eMMC 256GB / 실저장 85GB)',spec:'보드 일체형 eMMC 256GB (실저장 85GB)',method:'설정 메뉴'},
     {id:'3-06',cat:'저장',name:'8채널 30FPS 녹화 가능 확인',spec:'8채널 30FPS / 30·15·10·7FPS 선택',method:'설정 확인'},
   ]},
   {id:'S4',icon:'🎯',color:'#b5451b',title:'4. 캘리브레이션 검사',items:[
-    {id:'4-01',cat:'환경',name:'캘리브레이션 공간 확보 (각 방향 5M↑)',spec:'전·후·좌·우 각 5M 이상 평탄 공간',method:'줄자 측정 / 절4.11'},
-    {id:'4-02',cat:'환경',name:'캘리브레이션 패턴 배치 (90×150cm↑)',spec:'다이아몬드 패턴 4방향 배치',method:'육안 확인 / 절4.11'},
-    {id:'4-03',cat:'결과',name:'SVM 차량 이미지 방향 정상 표시',spec:'전·후·좌·우 방향 맞게 표현',method:'영상 확인 / 절4.11'},
-    {id:'4-04',cat:'결과',name:'SVM 라인 패턴 끊어짐 없음',spec:'라인 패턴 선 끊어짐 없을 것',method:'영상 확인 / 절4.11'},
+    {id:'4-01',cat:'환경',name:'캘리브레이션 공간 확보 (각 방향 5M↑)',spec:'전·후·좌·우 각 5M 이상 평탄 공간',method:'줄자 측정'},
+    {id:'4-02',cat:'환경',name:'캘리브레이션 패턴 배치 (90×150cm↑)',spec:'다이아몬드 패턴 4방향 배치',method:'육안 확인'},
+    {id:'4-03',cat:'결과',name:'SVM 차량 이미지 방향 정상 표시',spec:'전·후·좌·우 방향 맞게 표현',method:'영상 확인'},
+    {id:'4-04',cat:'결과',name:'SVM 라인 패턴 끊어짐 없음',spec:'라인 패턴 선 끊어짐 없을 것',method:'영상 확인'},
     {id:'4-05',cat:'기능',name:'제어기 자체 캘리브레이션 가능',spec:'제어기 자체 캘리브레이션 기능 보유',method:'메뉴 확인'},
     {id:'4-06',cat:'기능',name:'2D/3D 뷰 모드 전환 가능',spec:'2D와 3D 중 사용자 조작 변경 가능',method:'터치 동작'},
   ]},
   {id:'S5',icon:'🤖',color:'#2b4590',title:'5. AI 사람감지 검사',items:[
-    {id:'5-01',cat:'환경',name:'1m 범위 라인 표시',spec:'차량 주위 1m 범위 라인 표시',method:'줄자 측정 / 절4.12'},
-    {id:'5-02',cat:'환경',name:'3m 범위 라인 및 대각선 표시',spec:'3m 범위 라인 + 대각선 연결',method:'줄자 측정 / 절4.12'},
-    {id:'5-03',cat:'노란색',name:'노란색 영역(1~3m) 인지 – SVM 노란색 표시',spec:'1m~3m 진입 → SVM 노란색 (±30cm)',method:'보행자 진입 / 절4.12'},
-    {id:'5-04',cat:'붉은색',name:'붉은색 영역(20cm~1m) 인지 – SVM 붉은색 표시',spec:'20cm~1m 진입 → SVM 붉은색 (±20cm)',method:'보행자 진입 / 절4.12'},
-    {id:'5-05',cat:'경고음',name:'붉은색 영역 진입 시 경고음 출력',spec:'붉은색 영역 인지 → 스피커 경고음',method:'청각 확인 / 절4.12'},
-    {id:'5-06',cat:'다중',name:'복수 사람 동시 감지 및 전체 표시',spec:'복수 동시 인지 → 전체 표시+경고음',method:'복수 보행자 / 절4.12'},
+    {id:'5-01',cat:'환경',name:'1m 범위 라인 표시',spec:'차량 주위 1m 범위 라인 표시',method:'줄자 측정'},
+    {id:'5-02',cat:'환경',name:'3m 범위 라인 및 대각선 표시',spec:'3m 범위 라인 + 대각선 연결',method:'줄자 측정'},
+    {id:'5-03',cat:'노란색',name:'노란색 영역(1~3m) 인지 – SVM 노란색 표시',spec:'1m~3m 진입 → SVM 노란색 (±30cm)',method:'보행자 진입'},
+    {id:'5-04',cat:'붉은색',name:'붉은색 영역(20cm~1m) 인지 – SVM 붉은색 표시',spec:'20cm~1m 진입 → SVM 붉은색 (±20cm)',method:'보행자 진입'},
+    {id:'5-05',cat:'경고음',name:'붉은색 영역 진입 시 경고음 출력',spec:'붉은색 영역 인지 → 스피커 경고음',method:'청각 확인'},
+    {id:'5-06',cat:'다중',name:'복수 사람 동시 감지 및 전체 표시',spec:'복수 동시 인지 → 전체 표시+경고음',method:'복수 보행자'},
   ]},
   {id:'S6',icon:'📋',color:'#4a5568',title:'6. 하드웨어 사양 검사',items:[
     {id:'6-01',cat:'카메라',name:'어라운드뷰 카메라 해상도 (FHD 200만↑)',spec:'FHD 1080P(1920×1080)',method:'카탈로그/성적서'},
@@ -553,176 +378,124 @@ const SECTIONS=[
   ]},
 ];
 
-// ════════════════════════════════════
-//  상태
-// ════════════════════════════════════
-let SCRIPT_URL = '';
-let offlineMode = false;
-let state = { results:{}, notes:{}, activeSection:'S1', filter:'all', openNote:null };
-const TOTAL = SECTIONS.reduce((a,s)=>a+s.items.length,0);
+let SCRIPT_URL='',offlineMode=false;
+let state={results:{},notes:{},activeSection:'S1',filter:'all',openNote:null};
+const TOTAL=SECTIONS.reduce((a,s)=>a+s.items.length,0);
 
-// ════════════════════════════════════
-//  설정 화면
-// ════════════════════════════════════
 function copyCode(){
-  const code = document.getElementById('appsScriptCode').innerText.replace('복사','').trim();
+  const code=document.getElementById('appsScriptCode').innerText.replace('복사','').trim();
   navigator.clipboard.writeText(code).then(()=>{
-    const b=document.querySelector('.copy-btn'); b.textContent='✅ 복사됨!';
+    const b=document.querySelector('.copy-btn');b.textContent='✅ 복사됨!';
     setTimeout(()=>b.textContent='복사',2000);
   });
 }
-
 function startApp(offline=false){
-  if(offline){ offlineMode=true; launchApp(); return; }
-  const url = document.getElementById('scriptUrl').value.trim();
-  if(!url.includes('script.google.com')){
-    document.getElementById('urlWarn').style.display='block'; return;
-  }
-  SCRIPT_URL = url;
-  localStorage.setItem('scriptUrl', url);
-  launchApp();
+  if(offline){offlineMode=true;launchApp();return;}
+  const url=document.getElementById('scriptUrl').value.trim();
+  if(!url.includes('script.google.com')){document.getElementById('urlWarn').style.display='block';return;}
+  SCRIPT_URL=url;localStorage.setItem('scriptUrl',url);launchApp();
 }
-
 function launchApp(){
   document.getElementById('setupScreen').style.display='none';
   document.getElementById('appScreen').style.display='block';
-  document.getElementById('inspDate').value = new Date().toISOString().slice(0,10);
-  if(!offlineMode && SCRIPT_URL) loadFromSheets();
+  document.getElementById('inspDate').value=new Date().toISOString().slice(0,10);
+  if(!offlineMode&&SCRIPT_URL){loadFromSheets();startAutoRefresh();}
   render();
 }
-
 function resetSetup(){
-  if(!confirm('설정을 초기화하고 URL을 다시 입력하시겠습니까?')) return;
-  localStorage.removeItem('scriptUrl');
-  location.reload();
+  if(!confirm('설정을 초기화하고 URL을 다시 입력하시겠습니까?'))return;
+  localStorage.removeItem('scriptUrl');location.reload();
 }
-
-// 저장된 URL 자동 로드
 window.addEventListener('DOMContentLoaded',()=>{
-  const saved = localStorage.getItem('scriptUrl');
-  if(saved){
-    SCRIPT_URL = saved;
-    document.getElementById('scriptUrl').value = saved;
-    launchApp();
-  }
+  const saved=localStorage.getItem('scriptUrl');
+  if(saved){SCRIPT_URL=saved;document.getElementById('scriptUrl').value=saved;launchApp();}
 });
 
-// ════════════════════════════════════
-//  Google Sheets 연동
-// ════════════════════════════════════
-let saveTimer = null;
+let saveTimer=null,autoRefreshTimer=null,countdownTimer=null;
 
-function scheduleSync(itemId){
-  // 즉시 저장 (디바운스 300ms)
-  clearTimeout(saveTimer);
-  saveTimer = setTimeout(()=>syncItem(itemId), 300);
-}
-
+function scheduleSync(itemId){clearTimeout(saveTimer);saveTimer=setTimeout(()=>syncItem(itemId),300);}
 async function syncItem(itemId){
-  if(offlineMode || !SCRIPT_URL) return;
-  const sec = SECTIONS.find(s=>s.items.some(i=>i.id===itemId));
-  const item = sec?.items.find(i=>i.id===itemId);
-  if(!item) return;
-
+  if(offlineMode||!SCRIPT_URL)return;
+  const sec=SECTIONS.find(s=>s.items.some(i=>i.id===itemId));
+  const item=sec?.items.find(i=>i.id===itemId);if(!item)return;
   showSaveStatus('saving','⏳ 저장 중...');
-  const payload = {
-    vehicleNo: document.getElementById('vehicleNo').value||'미입력',
-    inspDate:  document.getElementById('inspDate').value||'',
-    inspector: document.getElementById('inspector').value||'미입력',
-    unitName:  document.getElementById('unitName').value||'',
-    itemId:    itemId,
-    itemName:  item.name,
-    result:    state.results[itemId]||'미검사',
-    note:      state.notes[itemId]||''
+  const payload={
+    vehicleNo:document.getElementById('vehicleNo').value||'미입력',
+    inspDate:document.getElementById('inspDate').value||'',
+    inspector:document.getElementById('inspector').value||'미입력',
+    unitName:document.getElementById('unitName').value||'',
+    itemId,itemName:item.name,
+    result:state.results[itemId]||'미검사',
+    note:state.notes[itemId]||''
   };
   try{
-    // ✅ no-cors 모드: file://에서도 동작 (응답 확인 불가지만 저장은 됨)
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {'Content-Type':'text/plain'},
-      body: JSON.stringify(payload)
-    });
-    showSaveStatus('saved','✅ Google Sheets 저장 요청 완료');
-  }catch(e){
-    showSaveStatus('error','⚠️ 저장 실패 – URL 또는 네트워크 확인');
-    console.error('저장 오류:', e);
-  }
+    await fetch(SCRIPT_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain'},body:JSON.stringify(payload)});
+    showSaveStatus('saved','✅ 저장 완료');
+  }catch(e){showSaveStatus('error','⚠️ 저장 실패');console.error(e);}
 }
-
-async function loadFromSheets(){
-  // ⚠️ file:// 환경에서는 GET 로드 불가 (CORS 제한)
-  // → 검사 시작 시 차량번호 입력 후 수동 새로고침 방식 안내
-  if(!SCRIPT_URL) return;
-  showSaveStatus('saving','📥 이전 데이터 불러오는 중...');
-  try{
-    // JSONP 방식으로 우회 시도
-    const url = SCRIPT_URL + '?callback=sheetsCallback';
-    window.sheetsCallback = function(data){
-      if(data && data.rows){
-        const veh = document.getElementById('vehicleNo').value;
+function loadFromSheets(silent=false){
+  if(offlineMode||!SCRIPT_URL)return;
+  if(!silent)showSaveStatus('saving','📥 데이터 불러오는 중...');
+  const old=document.getElementById('jsonp-script');if(old)old.remove();
+  const cbName='sc_'+Date.now();
+  window[cbName]=function(data){
+    try{
+      if(data&&data.rows&&data.rows.length>0){
+        const veh=document.getElementById('vehicleNo').value;
         data.rows.forEach(r=>{
-          if(!veh || r['차량번호']===veh){
-            const id = r['항목ID'];
-            if(r['결과'] && r['결과']!=='미검사') state.results[id]=r['결과'];
-            if(r['비고']) state.notes[id]=r['비고'];
+          if(!veh||r['차량번호']===veh){
+            const id=r['항목ID'];
+            if(r['결과']&&r['결과']!=='미검사')state.results[id]=r['결과'];
+            if(r['비고'])state.notes[id]=r['비고'];
           }
         });
         render();
-        showSaveStatus('saved','✅ 이전 데이터 불러오기 완료');
-      }
-    };
-    const script = document.createElement('script');
-    script.src = url;
-    script.onerror = ()=>{
-      showSaveStatus('saved','ℹ️ 새 검사 시작 (이전 데이터 없음)');
-    };
-    document.head.appendChild(script);
-    setTimeout(()=>document.head.removeChild(script).catch?.(()=>{}), 5000);
-  }catch(e){
-    showSaveStatus('saved','ℹ️ 새 검사 시작');
-  }
+        if(!silent)showSaveStatus('saved','✅ 불러오기 완료');
+        else showSaveStatus('saved','🔄 자동 업데이트 완료');
+      }else if(!silent)showSaveStatus('saved','ℹ️ 저장된 데이터 없음');
+    }catch(e){console.error(e);}
+    delete window[cbName];
+  };
+  const s=document.createElement('script');
+  s.id='jsonp-script';s.src=SCRIPT_URL+'?callback='+cbName;
+  s.onerror=()=>{if(!silent)showSaveStatus('error','⚠️ 불러오기 실패');delete window[cbName];};
+  document.head.appendChild(s);
+  setTimeout(()=>{if(window[cbName])delete window[cbName];},5000);
 }
-
-function openSheets(){
-  if(!SCRIPT_URL){ alert('Google Sheets URL이 설정되지 않았습니다.'); return; }
-  // URL에서 spreadsheet ID 추출 불가 → Apps Script URL만 있으므로 안내
-  alert('Google Drive에서 "제독차_수락검사_DB" 파일을 열어주세요.\n(drive.google.com)');
+function startAutoRefresh(){
+  if(autoRefreshTimer)clearInterval(autoRefreshTimer);
+  autoRefreshTimer=setInterval(()=>loadFromSheets(true),30000);
+  startCountdown();
 }
-
-function onMetaChange(){
-  // 기본 정보 변경 시 첫 번째 항목 sync로 헤더 업데이트
+function startCountdown(){
+  if(offlineMode)return;
+  let sec=30;const el=document.getElementById('autoRefreshLabel');
+  if(countdownTimer)clearInterval(countdownTimer);
+  countdownTimer=setInterval(()=>{
+    sec--;if(el)el.textContent=`🔄 자동업데이트: ${sec}초 후`;
+    if(sec<=0)sec=30;
+  },1000);
 }
-
-function showSaveStatus(type, msg){
-  const el = document.getElementById('saveStatus');
-  el.className = type; el.textContent = msg;
-  if(type==='saved') setTimeout(()=>el.style.display='none', 2500);
+function openSheets(){alert('Google Drive에서 "제독차_수락검사_DB" 파일을 열어주세요.\n(drive.google.com)');}
+function onMetaChange(){}
+function showSaveStatus(type,msg){
+  const el=document.getElementById('saveStatus');
+  el.className=type;el.textContent=msg;
+  if(type==='saved')setTimeout(()=>{el.style.display='none';},2500);
 }
-
-// ════════════════════════════════════
-//  통계
-// ════════════════════════════════════
 function calcStats(){
   let pass=0,fail=0,na=0;
   SECTIONS.forEach(s=>s.items.forEach(i=>{
     const r=state.results[i.id];
-    if(r==='pass')pass++; else if(r==='fail')fail++; else if(r==='na')na++;
+    if(r==='pass')pass++;else if(r==='fail')fail++;else if(r==='na')na++;
   }));
   return{pass,fail,na,done:pass+fail+na,pending:TOTAL-pass-fail-na};
 }
 function secStats(s){
   let pass=0,fail=0,na=0;
-  s.items.forEach(i=>{
-    const r=state.results[i.id];
-    if(r==='pass')pass++; else if(r==='fail')fail++; else if(r==='na')na++;
-  });
+  s.items.forEach(i=>{const r=state.results[i.id];if(r==='pass')pass++;else if(r==='fail')fail++;else if(r==='na')na++;});
   return{pass,fail,na,done:pass+fail+na,total:s.items.length};
 }
-
-// ════════════════════════════════════
-//  렌더
-// ════════════════════════════════════
 function updateProgress(){
   const{pass,fail,na,done,pending}=calcStats();
   const pct=Math.round(done/TOTAL*100);
@@ -735,14 +508,13 @@ function updateProgress(){
   document.getElementById('cntNa').textContent=na;
   document.getElementById('cntPending').textContent=pending;
 }
-
 function renderSidebar(){
-  const wrap=document.getElementById('sidebarTabs'); wrap.innerHTML='';
+  const wrap=document.getElementById('sidebarTabs');wrap.innerHTML='';
   SECTIONS.forEach(s=>{
-    const st=secStats(s); const isA=s.id===state.activeSection;
+    const st=secStats(s);const isA=s.id===state.activeSection;
     const d=document.createElement('div');
     d.className='sec-tab'+(isA?' active':'');
-    if(isA) d.style.background=s.color;
+    if(isA)d.style.background=s.color;
     d.innerHTML=`<div class="sec-tab-name">${s.icon} ${s.title.replace(/^\d+\.\s/,'')}</div>
       <div class="sec-tab-pills">
         <span class="pill pill-pass">✓${st.pass}</span>
@@ -753,18 +525,15 @@ function renderSidebar(){
     wrap.appendChild(d);
   });
 }
-
 function renderMain(){
-  const sec=SECTIONS.find(s=>s.id===state.activeSection); if(!sec) return;
+  const sec=SECTIONS.find(s=>s.id===state.activeSection);if(!sec)return;
   let items=sec.items;
-  if(state.filter==='pass')    items=items.filter(i=>state.results[i.id]==='pass');
-  else if(state.filter==='fail')   items=items.filter(i=>state.results[i.id]==='fail');
-  else if(state.filter==='pending') items=items.filter(i=>!state.results[i.id]);
-
-  const modeTag = offlineMode
-    ? `<div class="sheets-banner error">⚠️ 오프라인 모드 – 데이터가 저장되지 않습니다.</div>`
-    : `<div class="sheets-banner">✅ Google Sheets 연동됨 – 버튼 클릭 즉시 자동 저장</div>`;
-
+  if(state.filter==='pass')items=items.filter(i=>state.results[i.id]==='pass');
+  else if(state.filter==='fail')items=items.filter(i=>state.results[i.id]==='fail');
+  else if(state.filter==='pending')items=items.filter(i=>!state.results[i.id]);
+  const modeTag=offlineMode
+    ?`<div class="sheets-banner error">⚠️ 오프라인 모드 – 데이터가 저장되지 않습니다.</div>`
+    :`<div class="sheets-banner">✅ Google Sheets 연동됨 – 버튼 클릭 즉시 자동 저장</div>`;
   document.getElementById('mainContent').innerHTML=`
     ${modeTag}
     <div class="section-header" style="background:${sec.color}">
@@ -777,23 +546,19 @@ function renderMain(){
     </div>
     <div class="table-wrap">
       <div class="table-head">
-        <span>번호</span><span>구분</span><span>검사 항목</span>
-        <span>합격 기준</span>
+        <span>번호</span><span>구분</span><span>검사 항목</span><span>합격 기준</span>
         <span style="text-align:center;color:#0f9d58">합격</span>
         <span style="text-align:center;color:#d93025">불합격</span>
         <span style="text-align:center;color:#5f6368">해당없음</span>
         <span></span>
       </div>
       <div id="itemList">
-        ${items.length===0
-          ? '<div class="empty-msg">해당 항목 없음</div>'
-          : items.map(i=>renderItem(i,sec.id)).join('')}
+        ${items.length===0?'<div class="empty-msg">해당 항목 없음</div>':items.map(i=>renderItem(i)).join('')}
       </div>
     </div>`;
 }
-
 function renderItem(item){
-  const r=state.results[item.id]||''; const note=state.notes[item.id]||'';
+  const r=state.results[item.id]||'';const note=state.notes[item.id]||'';
   const noteOpen=state.openNote===item.id;
   return`<div class="item-row" id="row-${item.id}">
     <div class="item-grid${r?' result-'+r:''}">
@@ -819,37 +584,28 @@ function renderItem(item){
     </div>
   </div>`;
 }
-
 function setResult(itemId,val){
   state.results[itemId]=state.results[itemId]===val?undefined:val;
-  if(!state.results[itemId]) delete state.results[itemId];
-  scheduleSync(itemId);
-  render();
+  if(!state.results[itemId])delete state.results[itemId];
+  scheduleSync(itemId);render();
 }
-function setFilter(f){ state.filter=f; renderMain(); }
-function toggleNote(id){ state.openNote=state.openNote===id?null:id; renderMain(); }
-function closeNote(){ state.openNote=null; renderMain(); }
+function setFilter(f){state.filter=f;renderMain();}
+function toggleNote(id){state.openNote=state.openNote===id?null:id;renderMain();}
+function closeNote(){state.openNote=null;renderMain();}
 function saveNote(id){
   const t=document.getElementById('ntxt-'+id);
-  if(t){ state.notes[id]=t.value.trim(); if(!state.notes[id]) delete state.notes[id]; }
-  scheduleSync(id);
-  state.openNote=null; render();
+  if(t){state.notes[id]=t.value.trim();if(!state.notes[id])delete state.notes[id];}
+  scheduleSync(id);state.openNote=null;render();
 }
-
-function render(){ renderSidebar(); renderMain(); updateProgress(); }
-
-// ════════════════════════════════════
-//  요약
-// ════════════════════════════════════
+function render(){renderSidebar();renderMain();updateProgress();}
 function toggleSummary(){
   const sv=document.getElementById('summaryView');
   const ml=document.getElementById('mainLayout');
   const btn=document.getElementById('btnSummary');
   const isOpen=sv.style.display==='block';
-  if(isOpen){ sv.style.display='none'; ml.style.display='flex'; btn.textContent='📋 최종 요약'; btn.classList.remove('active'); }
-  else{ buildSummary(); sv.style.display='block'; ml.style.display='none'; btn.textContent='✏️ 검사 화면'; btn.classList.add('active'); }
+  if(isOpen){sv.style.display='none';ml.style.display='flex';btn.textContent='📋 최종 요약';btn.classList.remove('active');}
+  else{buildSummary();sv.style.display='block';ml.style.display='none';btn.textContent='✏️ 검사 화면';btn.classList.add('active');}
 }
-
 function buildSummary(){
   const{pass,fail,na,done}=calcStats();
   const allItems=SECTIONS.flatMap(s=>s.items);
@@ -858,12 +614,10 @@ function buildSummary(){
   const dt=document.getElementById('inspDate').value||'-';
   const ins=document.getElementById('inspector').value||'-';
   const unit=document.getElementById('unitName').value||'-';
-
   let vClass,vText,vIcon;
   if(done<TOTAL){vClass='';vText='검사 진행 중';vIcon='⏳';}
   else if(fail>0){vClass='color:#d93025';vText='최종 불합격';vIcon='❌';}
   else{vClass='color:#0f9d58';vText='최종 합격';vIcon='✅';}
-
   document.getElementById('summaryView').innerHTML=`
     <div class="summary-card">
       <div class="summary-hd">
@@ -887,7 +641,7 @@ function buildSummary(){
       <div class="sec-results">
         <h3>📊 섹션별 결과</h3>
         ${SECTIONS.map(s=>{
-          const st=secStats(s); const pct=Math.round(st.done/st.total*100);
+          const st=secStats(s);const pct=Math.round(st.done/st.total*100);
           let badge,bc;
           if(st.fail>0){badge='badge-fail';bc='#d93025';}
           else if(st.done<st.total){badge='badge-wip';bc='#f29900';}
